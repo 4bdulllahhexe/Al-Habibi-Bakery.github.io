@@ -19,7 +19,7 @@
       <!--==================== HEADER ====================-->
       <header class="header" id="header">
          <nav class="nav container">
-            <a href="#" class="nav__logo">Al Habibi Bakery</a>Bakery</a>
+            <a href="#" class="nav__logo">Al Habibi Bakery</a>
 
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
@@ -42,8 +42,61 @@
                   <li class="nav__item">
                      <a href="#visit" class="nav__link">Location</a>
                   </li>
-               </ul>
 
+                  <li>
+                     <div class="nav__auth">
+                        <button class="auth__button" id="auth-button">Login/Signup</button>
+                      </div>
+                      
+                      <div class="auth__modal" id="auth-modal">
+                        <div class="auth__content">
+                          <div class="auth__header">
+                            <div class="auth__tabs">
+                              <button class="auth__tab active" data-tab="login">Login</button>
+                              <button class="auth__tab" data-tab="signup">Signup</button>
+                            </div>
+                            <button class="auth__close" id="auth-close">
+                              <i class="ri-close-line"></i>
+                            </button>
+                          </div>
+                      
+                          <!-- Login Form -->
+                          <form class="auth__form" id="login-form" style="display: block;">
+                            <div class="form__group">
+                              <label for="login-email">Email</label>
+                              <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form__group">
+                              <label for="login-password">Password</label>
+                              <input type="password" id="login-password" required>
+                            </div>
+                            <button type="submit" class="button">Login</button>
+                          </form>
+                      
+                          <!-- Signup Form -->
+                          <form class="auth__form" id="signup-form" style="display: none;">
+                            <div class="form__group">
+                              <label for="signup-name">Full Name</label>
+                              <input type="text" id="signup-name" required>
+                            </div>
+                            <div class="form__group">
+                              <label for="signup-email">Email</label>
+                              <input type="email" id="signup-email" required>
+                            </div>
+                            <div class="form__group">
+                              <label for="signup-password">Password</label>
+                              <input type="password" id="signup-password" required>
+                            </div>
+                            <div class="form__group">
+                              <label for="signup-confirm">Confirm Password</label>
+                              <input type="password" id="signup-confirm" required>
+                            </div>
+                            <button type="submit" class="button">Sign Up</button>
+                          </form>
+                        </div>
+                      </div>
+                  </li>
+               </ul>
                <!-- Close button -->
                <div class="nav__close" id="nav-close">
                   <i class="ri-close-line"></i>
