@@ -89,3 +89,73 @@ sr.reveal(`.new__card:nth-child(3) img`, { rotate: {z: -30}, distance: 0, delay:
 
 sr.reveal(`.footer__container`, { scale: 1 })
 sr.reveal(`.favorite__card img`, { interval: 100, rotate: {z: 15}, distance: 0 })
+
+// Get DOM elements
+const authButton = document.getElementById('auth-button');
+const authModal = document.getElementById('auth-modal');
+const authClose = document.getElementById('auth-close');
+const loginForm = document.getElementById('login-form');
+const signupForm = document.getElementById('signup-form');
+const authTabs = document.querySelectorAll('.auth__tab');
+
+// Show/hide modal
+authButton.addEventListener('click', () => {
+  authModal.style.display = 'flex';
+});
+
+authClose.addEventListener('click', () => {
+  authModal.style.display = 'none';
+});
+
+// Close modal when clicking outside
+authModal.addEventListener('click', (e) => {
+  if (e.target === authModal) {
+    authModal.style.display = 'none';
+  }
+});
+
+// Tab switching
+authTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active class from all tabs
+    authTabs.forEach(t => t.classList.remove('active'));
+    // Add active class to clicked tab
+    tab.classList.add('active');
+    
+    // Show/hide forms based on selected tab
+    const formType = tab.dataset.tab;
+    if (formType === 'login') {
+      loginForm.style.display = 'block';
+      signupForm.style.display = 'none';
+    } else {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    }
+  });
+});
+
+// Form submission handling
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+  
+  // Add your login logic here
+  console.log('Login:', { email, password });
+});
+
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('signup-name').value;
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+  const confirm = document.getElementById('signup-confirm').value;
+  
+  if (password !== confirm) {
+    alert('Passwords do not match!');
+    return;
+  }
+  
+  // Add your signup logic here
+  console.log('Signup:', { name, email, password });
+});
