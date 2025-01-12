@@ -151,7 +151,7 @@ signupForm.addEventListener('submit', (e) => {
   const password = document.getElementById('signup-password').value;
   const confirm = document.getElementById('signup-confirm').value;
   
-  if (password !== confirm) {
+  if (password != confirm) {
     alert('Passwords do not match!');
     return;
   }
