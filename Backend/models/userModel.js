@@ -16,10 +16,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    first_name:{
+    confirm:{
         type: String,
         required: true,
-        minlength: 3
+        minlength: 6
     }
 });
 
