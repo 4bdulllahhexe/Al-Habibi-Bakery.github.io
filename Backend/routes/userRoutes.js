@@ -3,9 +3,9 @@ import User from '../models/userModel.js';
 const router = express.Router();
 
 router.post('/', async(req, res) => {
-    const {name, email, password,first_name} = req.body;
+    const {name, email, password,confirm} = req.body;
     try {
-        const newUser = new User({name, email, password,first_name});
+        const newUser = new User({name, email, password,confirm});
         await newUser.save();
         res.status(201).json(newUser);
     } catch (error) {
