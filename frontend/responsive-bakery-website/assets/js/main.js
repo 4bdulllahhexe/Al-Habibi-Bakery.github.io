@@ -157,5 +157,5 @@ signupForm.addEventListener('submit', (e) => {
   }
   
   // Add your signup logic here
-  console.log('Signup:', { name, email, password });
+  console.log('Signup:', { name, email, password, confirm });
 });
