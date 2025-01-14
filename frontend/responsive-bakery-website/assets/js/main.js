@@ -116,58 +116,54 @@ authModal.addEventListener('click', (e) => {
 });
 
 // Tab switching
-authTabs.forEach((tab) => {
-  tab.addEventListener('click', (e) => {
-    e.preventDefault();
-
+authTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
     // Remove active class from all tabs
-    authTabs.forEach((t) => t.classList.remove('active'));
-
-    // Add active class to the clicked tab
+    authTabs.forEach(t => t.classList.remove('active'));
+    // Add active class to clicked tab
     tab.classList.add('active');
-
+    
     // Show/hide forms based on selected tab
     const formType = tab.dataset.tab;
     if (formType === 'login') {
       loginForm.style.display = 'block';
       signupForm.style.display = 'none';
-    } else if (formType === 'signup') {
+    } else {
       loginForm.style.display = 'none';
       signupForm.style.display = 'block';
     }
   });
 });
 
-// API base URL
-const API_BASE_URL = 'http://localhost:3000/api/users';
-
-// Form submission handling - Login
+// Handle login form submission
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
 
     const data = await response.json();
+
     if (response.ok) {
       alert('Login successful!');
       console.log('User:', data.user);
+      authModal.style.display = 'none'; // Close modal on success
     } else {
-      alert(data.message || 'Login failed!');
+      alert(data.message);
     }
   } catch (error) {
     console.error('Error during login:', error);
-    alert('An error occurred while logging in.');
+    alert('An error occurred during login.');
   }
 });
 
-// Form submission handling - Signup
+// Handle signup form submission
 signupForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('signup-name').value;
@@ -175,30 +171,30 @@ signupForm.addEventListener('submit', async (e) => {
   const password = document.getElementById('signup-password').value;
   const confirm = document.getElementById('signup-confirm').value;
 
-  // Client-side validation: Ensure passwords match
   if (password !== confirm) {
     alert('Passwords do not match!');
     return;
   }
 
   try {
-    // Send only required fields to the server
-    const response = await fetch(`${API_BASE_URL}/signup`, {
+    const response = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }), // Do NOT include 'confirm'
+      body: JSON.stringify({ name, email, password, confirm }),
     });
 
     const data = await response.json();
+
     if (response.ok) {
       alert('Signup successful!');
-      console.log('New User:', data.user);
+      authModal.style.display = 'none'; // Close modal on success
     } else {
-      alert(data.message || 'Signup failed!');
+      alert(data.message);
     }
   } catch (error) {
     console.error('Error during signup:', error);
-    alert('An error occurred while signing up.');
+    alert('An error occurred during signup.');
   }
 });
+
 
