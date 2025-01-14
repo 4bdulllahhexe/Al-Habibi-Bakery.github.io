@@ -90,6 +90,7 @@ sr.reveal(`.new__card:nth-child(3) img`, { rotate: {z: -30}, distance: 0, delay:
 sr.reveal(`.footer__container`, { scale: 1 })
 sr.reveal(`.favorite__card img`, { interval: 100, rotate: {z: 15}, distance: 0 })
 
+/*=============== LOGIN AND SIGNUP ===============*/
 // Get DOM elements
 const authButton = document.getElementById('auth-button');
 const authModal = document.getElementById('auth-modal');
