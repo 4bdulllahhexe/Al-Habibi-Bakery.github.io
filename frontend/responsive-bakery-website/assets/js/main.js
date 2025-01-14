@@ -136,13 +136,14 @@ authTabs.forEach(tab => {
 });
 
 // Handle login form submission
+// Handle login form submission
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
 
   try {
-    const response = await fetch('http://localhost:3000/api/users', {
+    const response = await fetch('http://localhost:3000/api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -155,13 +156,15 @@ loginForm.addEventListener('submit', async (e) => {
       console.log('User:', data.user);
       authModal.style.display = 'none'; // Close modal on success
     } else {
-      alert(data.message);
+      // Display error message returned from the backend
+      alert(data.message || 'Login failed. Please try again.');
     }
   } catch (error) {
     console.error('Error during login:', error);
-    alert('An error occurred during login.');
+    alert('An error occurred during login. Please check your connection or try again later.');
   }
 });
+
 
 // Handle signup form submission
 signupForm.addEventListener('submit', async (e) => {
