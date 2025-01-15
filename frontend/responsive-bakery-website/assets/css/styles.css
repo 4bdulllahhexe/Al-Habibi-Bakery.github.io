@@ -1,12 +1,14 @@
 /*=============== GOOGLE FONTS ===============*/
+/* Importing fonts from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
+/* Defining reusable variables for consistency */
 :root {
-  --header-height: 3.5rem;
+  --header-height: 3.5rem; /* Height of the header */
 
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
+  /* Defining primary and supporting colors in HSL format */
   --first-color: hsl(28, 88%, 62%);
   --first-color-alt: hsl(28, 84%, 58%);
   --title-color: hsl(0, 0%, 95%);
@@ -17,10 +19,10 @@
   --container-color: hsl(0, 0%, 10%);
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
+  /* Setting up fonts and sizes for the site */
   --body-font: "Montserrat", sans-serif;
   --second-font: "Dancing Script", cursive;
-  --biggest-font-size: 3rem;
+  --biggest-font-size: 3rem; /* Largest font size */
   --bigger-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -29,19 +31,22 @@
   --small-font-size: .813rem;
 
   /*========== Font weight ==========*/
+  /* Font weight options */
   --font-regular: 400;
   --font-semi-bold: 600;
   --font-bold: 700;
 
   /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
+  /* Z-index levels for layering */
+  --z-tooltip: 10; /* Tooltip layer */
+  --z-fixed: 100; /* Fixed header layer */
 }
 
 /*========== Responsive typography ==========*/
+/* Adjust font sizes for larger screens */
 @media screen and (min-width: 1150px) {
   :root {
-    --biggest-font-size: 5rem;
+    --biggest-font-size: 5rem; /* Increase largest font size */
     --bigger-font-size: 3rem;
     --h1-font-size: 2.25rem;
     --h2-font-size: 1.5rem;
@@ -52,289 +57,296 @@
 }
 
 /*=============== BASE ===============*/
+/* Global styles for all elements */
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 body,
 button {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+  font-family: var(--body-font); /* Use the main font for body and buttons */
+  font-size: var(--normal-font-size); /* Set base font size */
 }
 
 body {
-  background-color: var(--body-color);
-  color: var(--text-color);
+  background-color: var(--body-color); /* Set background color */
+  color: var(--text-color); /* Set text color */
 }
 
 button {
-  border: none;
-  outline: none;
+  border: none; /* Remove default button border */
+  outline: none; /* Remove focus outline */
 }
 
 h1, h2, h3, h4 {
-  color: var(--title-color);
-  font-weight: var(--font-bold);
+  color: var(--title-color); /* Set title color */
+  font-weight: var(--font-bold); /* Use bold font weight for headings */
 }
 
 ul {
-  list-style: none;
+  list-style: none; /* Remove bullet points from lists */
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline from links */
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  display: block; /* Treat image as a block-level element */
+  max-width: 100%; /* Ensure image does not exceed container width */
+  height: auto; /* Maintain image aspect ratio */
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1120px;
-  margin-inline: 1.5rem;
+  max-width: 1120px; /* Set maximum container width */
+  margin-inline: 1.5rem; /* Add horizontal margin */
 }
 
 .grid {
-  display: grid;
-  gap: 1.5rem;
+  display: grid; /* Use grid layout */
+  gap: 1.5rem; /* Add spacing between grid items */
 }
 
 .section {
-  padding-block: 5rem 1rem;
+  padding-block: 5rem 1rem; /* Add vertical padding */
 }
 
 .section__title {
-  font-size: var(--bigger-font-size);
-  font-family: var(--second-font);
-  margin-bottom: 1.5rem;
-  text-align: center;
+  font-size: var(--bigger-font-size); /* Larger font size for section titles */
+  font-family: var(--second-font); /* Use secondary font for titles */
+  margin-bottom: 1.5rem; /* Add spacing below title */
+  text-align: center; /* Center align the title */
 }
 
 .main {
-  overflow: hidden; /* For animation ScrollReveal */
+  overflow: hidden; /* Hide overflow for animations (e.g., ScrollReveal) */
 }
 
 /*=============== HEADER & NAV ===============*/
 .header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  z-index: var(--z-fixed);
+  position: fixed; /* Keep header fixed at the top */
+  width: 100%; /* Header spans full width */
+  top: 0; /* Position header at the top */
+  left: 0; /* Align header to the left */
+  background-color: transparent; /* Transparent background */
+  z-index: var(--z-fixed); /* High z-index for visibility */
 }
 
 .nav {
-  position: relative;
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative; /* Relative positioning for child elements */
+  height: var(--header-height); /* Set height based on variable */
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between logo and menu */
+  align-items: center; /* Vertically center items */
 }
 
 .nav__logo {
-  color: var(--first-color);
-  font-size: var(--h2-font-size);
-  font-family: var(--second-font);
-  transition: color .4s;
+  color: var(--first-color); /* Logo color */
+  font-size: var(--h2-font-size); /* Logo font size */
+  font-family: var(--second-font); /* Use secondary font for logo */
+  transition: color .4s; /* Smooth color transition on hover */
 }
 
 .nav__logo:hover {
-  color: var(--first-color-alt);
+  color: var(--first-color-alt); /* Change logo color on hover */
 }
 
 .nav__toggle, 
 .nav__close {
-  font-size: 1.5rem;
-  color: var(--title-color);
-  cursor: pointer;
+  font-size: 1.5rem; /* Size for toggle and close icons */
+  color: var(--title-color); /* Icon color */
+  cursor: pointer; /* Show pointer cursor on hover */
 }
 
+
 /* Navigation for mobile devices */
+/*=============== RESPONSIVE NAVIGATION MENU ===============*/
 @media screen and (max-width: 1150px) {
   .nav__menu {
+    /* Fixed position for the menu when active */
     position: fixed;
     top: 0;
-    right: -100%;
-    background-color: hsla(0, 0%, 6%, .2);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    width: 80%;
-    height: 100%;
-    padding: 6rem 3rem 0;
-    transition: right .4s;
+    right: -100%; /* Hide menu initially */
+    background-color: hsla(0, 0%, 6%, .2); /* Semi-transparent background */
+    backdrop-filter: blur(16px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(16px); /* Safari blur support */
+    width: 80%; /* Menu occupies 80% of the screen width */
+    height: 100%; /* Full height of the viewport */
+    padding: 6rem 3rem 0; /* Padding for spacing */
+    transition: right .4s; /* Smooth transition when showing menu */
   }
 }
 
 .nav__list {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2.5rem;
+  display: flex; /* Flexbox layout for menu items */
+  flex-direction: column; /* Stack items vertically */
+  row-gap: 2.5rem; /* Space between each menu item */
 }
 
 .nav__link {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
-  transition: color .4s;
+  color: var(--title-color); /* Link text color */
+  font-weight: var(--font-semi-bold); /* Semi-bold font weight */
+  transition: color .4s; /* Smooth color transition on hover */
 }
 
 .nav__link:hover {
-  color: var(--first-color);
+  color: var(--first-color); /* Highlight link color on hover */
 }
 
+/* Positioning elements inside the navigation menu */
 .nav__close, 
 .nav__img-1, 
 .nav__img-2 {
-  position: absolute;
+  position: absolute; /* Absolute positioning */
 }
 
 .nav__close {
-  top: 1rem;
-  right: 1.5rem;
+  top: 1rem; /* Position close icon at the top */
+  right: 1.5rem; /* Align close icon to the right */
 }
 
 .nav__img-1 {
-  width: 80px;
-  top: 11rem;
-  right: .75rem;
+  width: 80px; /* Set image size */
+  top: 11rem; /* Position vertically */
+  right: .75rem; /* Align to the right */
 }
 
 .nav__img-2 {
-  width: 60px;
-  top: 28rem;
-  left: 6rem;
+  width: 60px; /* Set image size */
+  top: 28rem; /* Position vertically */
+  left: 6rem; /* Align to the left */
 }
 
-/* Show menu */
+/* Show the menu when activated */
 .show-menu {
-  right: 0;
+  right: 0; /* Slide menu into view */
 }
 
-/* Add blur header */
+/* Add blur effect to header when scrolling */
 .blur-header::after {
-  content: "";
+  content: ""; /* Empty pseudo-element for blur effect */
   position: absolute;
-  width: 1000%;
-  height: 100%;
-  background-color: hsla(0, 0%, 6%, .2);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  width: 1000%; /* Extend the blur beyond the element */
+  height: 100%; /* Full height */
+  background-color: hsla(0, 0%, 6%, .2); /* Semi-transparent background */
+  backdrop-filter: blur(16px); /* Blur effect */
+  -webkit-backdrop-filter: blur(16px); /* Safari blur support */
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -1; /* Place behind the header content */
 }
 
-/* Active link */
+/* Highlight the active menu link */
 .active-link {
-  color: var(--first-color);
+  color: var(--first-color); /* Change color for active link */
 }
 
-/*=============== HOME ===============*/
+/*=============== HOME SECTION ===============*/
 .home {
-  position: relative;
-  padding-top: 6.5rem;
+  position: relative; /* Allow positioning child elements */
+  padding-top: 6.5rem; /* Add padding to create space below the header */
 }
 
 .home__container {
-  row-gap: 2rem;
+  row-gap: 2rem; /* Add vertical spacing between elements */
 }
 
 .home__bg, 
 .home__shadow {
-  position: absolute;
+  position: absolute; /* Position background and shadow */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  z-index: -1; /* Place behind content */
 }
 
 .home__bg {
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; /* Cover the entire area */
+  object-position: center; /* Center the background image */
 }
 
 .home__shadow {
-  background: linear-gradient(180deg, 
-            hsla(0, 0%, 0%, 0) 0%, 
-            hsl(0, 0%, 6%) 100%);
+  background: linear-gradient(180deg, /* Gradient shadow effect */
+            hsla(0, 0%, 0%, 0) 0%, /* Transparent at the top */
+            hsl(0, 0%, 6%) 100%); /* Darker at the bottom */
 }
 
 .home__data {
-  position: relative;
-  text-align: center;
+  position: relative; /* Allow positioning of text */
+  text-align: center; /* Center align text */
 }
 
 .home__title {
-  font-size: var(--biggest-font-size);
-  font-family: var(--second-font);
-  margin-bottom: 1.5rem;
+  font-size: var(--biggest-font-size); /* Largest font size for title */
+  font-family: var(--second-font); /* Use decorative font */
+  margin-bottom: 1.5rem; /* Space below the title */
 }
 
 .home__bread {
-  width: 50px;
-  position: absolute;
-  top: 15rem;
-  left: 4rem;
+  width: 50px; /* Set image size */
+  position: absolute; /* Position bread icon */
+  top: 15rem; /* Vertical position */
+  left: 4rem; /* Horizontal position */
 }
 
 .home__image {
-  max-width: 400px;
-  justify-self: center;
+  max-width: 400px; /* Limit image width */
+  justify-self: center; /* Center align the image */
 }
 
 .home__img {
-  rotate: 15deg;
+  rotate: 15deg; /* Add a rotation effect */
 }
 
+/* Flex layout for footer, location, and social links */
 .home__footer, 
 .home__location, 
 .home__social {
-  display: flex;
+  display: flex; /* Flexbox layout */
 }
 
 .home__footer {
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Align items vertically */
 }
 
 .home__location {
-  align-items: center;
-  column-gap: .5rem;
+  align-items: center; /* Align text and icons vertically */
+  column-gap: .5rem; /* Space between location icon and text */
 }
 
 .home__location i {
-  font-size: 1.5rem;
-  color: var(--first-color);
+  font-size: 1.5rem; /* Set icon size */
+  color: var(--first-color); /* Icon color */
 }
 
 .home__location span {
-  color: var(--title-color);
-  font-size: var(--small-font-size);
+  color: var(--title-color); /* Text color */
+  font-size: var(--small-font-size); /* Smaller font size for text */
 }
 
 .home__social {
-  column-gap: 1rem;
+  column-gap: 1rem; /* Space between social media links */
 }
 
 .home__social a {
-  color: var(--title-color);
-  font-size: 1.5rem;
-  transition: color .4s;
+  color: var(--title-color); /* Default color for social links */
+  font-size: 1.5rem; /* Font size for icons */
+  transition: color .4s; /* Smooth color transition on hover */
 }
 
 .home__social a:hover {
-  color: var(--first-color);
+  color: var(--first-color); /* Change color on hover */
 }
+
 
 /*=============== BUTTON ===============*/
 .button {
@@ -510,470 +522,569 @@ img {
 
 /*=============== FOOTER ===============*/
 .footer {
-  padding-block: 3rem 2rem;
+  padding-block: 3rem 2rem; /* Add padding to top and bottom of footer */
 }
 
 .footer__container {
-  position: relative;
-  row-gap: 4rem;
+  position: relative; /* Allows child elements to be positioned relative to this container */
+  row-gap: 4rem; /* Space between rows of content in the footer */
 }
 
 .footer__logo {
-  display: inline-block;
-  color: var(--first-color);
-  font-size: var(--h2-font-size);
-  font-family: var(--second-font);
-  margin-bottom: .5rem;
-  transition: color .4s;
+  display: inline-block; /* Ensures the logo behaves like an inline element but maintains block-like features */
+  color: var(--first-color); /* Primary color for the footer logo */
+  font-size: var(--h2-font-size); /* Font size for the logo */
+  font-family: var(--second-font); /* Decorative font for branding */
+  margin-bottom: .5rem; /* Spacing below the logo */
+  transition: color .4s; /* Smooth color transition effect for hover */
 }
 
 .footer__logo:hover {
-  color: var(--first-color-alt);
+  color: var(--first-color-alt); /* Changes color on hover */
 }
 
 .footer__content {
-  grid-template-columns: repeat(2, max-content);
-  gap: 4rem 2rem;
+  grid-template-columns: repeat(2, max-content); /* Create two columns with content size */
+  gap: 4rem 2rem; /* Row and column spacing */
 }
 
 .footer__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: 1.25rem;
+  font-size: var(--h3-font-size); /* Font size for section titles in the footer */
+  margin-bottom: 1.25rem; /* Spacing below the title */
 }
 
 .footer__list {
-  display: grid;
-  row-gap: .75rem;
+  display: grid; /* Arrange footer items in a grid */
+  row-gap: .75rem; /* Vertical spacing between list items */
 }
 
 .footer__info {
-  font-style: normal;
+  font-style: normal; /* Set standard font style */
 }
 
 .footer__social {
-  display: flex;
-  column-gap: 1rem;
+  display: flex; /* Flex layout for social icons */
+  column-gap: 1rem; /* Space between social icons */
 }
 
 .footer__social a {
-  color: var(--text-color);
-  font-size: 1.5rem;
-  transition: color .4s;
+  color: var(--text-color); /* Default color for social icons */
+  font-size: 1.5rem; /* Size of the social icons */
+  transition: color .4s; /* Smooth color transition effect for hover */
 }
 
 .footer__social a:hover {
-  color: var(--first-color);
+  color: var(--first-color); /* Changes color on hover */
 }
 
+/* Footer decorative images */
 .footer__img-1, 
 .footer__img-2 {
-  position: absolute;
+  position: absolute; /* Positioned absolutely within the container */
 }
+
 .footer__img-1 {
-  width: 60px;
-  top: 2.5rem;
-  right: 1.5rem;
+  width: 60px; /* Size of the first decorative image */
+  top: 2.5rem; /* Position from the top */
+  right: 1.5rem; /* Position from the right */
 }
 
 .footer__img-2 {
-  width: 70px;
-  top: 17rem;
-  left: 9rem;
+  width: 70px; /* Size of the second decorative image */
+  top: 17rem; /* Position from the top */
+  left: 9rem; /* Position from the left */
 }
 
 .footer__copy {
-  display: block;
-  margin-top: 6rem;
-  text-align: center;
-  font-size: var(--small-font-size);
+  display: block; /* Ensure the copyright text takes up the full width */
+  margin-top: 6rem; /* Space above the copyright text */
+  text-align: center; /* Center align the text */
+  font-size: var(--small-font-size); /* Smaller font size for the copyright */
 }
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
-  width: .6rem;
-  background-color: hsl(28, 12%, 15%);
+  width: .6rem; /* Width of the scrollbar */
+  background-color: hsl(28, 12%, 15%); /* Background color of the scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(28, 12%, 25%);
+  background-color: hsl(28, 12%, 25%); /* Thumb color (scroll handle) */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(28, 12%, 35%);
+  background-color: hsl(28, 12%, 35%); /* Darker thumb color on hover */
 }
 
 /*=============== SCROLL UP ===============*/
 .scrollup {
-  position: fixed;
-  right: 1rem;
-  bottom: -50%;
-  background-color: var(--container-color);
-  color: var(--title-color);
-  box-shadow: 0 12px 24px hsla(0, 0%, 0%, .3);
-  display: inline-flex;
-  padding: 6px;
-  font-size: 1.25rem;
-  z-index: var(--z-tooltip);
-  transition: bottom .4s, transform .4s;
+  position: fixed; /* Fixed position for the scroll-up button */
+  right: 1rem; /* Distance from the right */
+  bottom: -50%; /* Initially positioned outside the viewport */
+  background-color: var(--container-color); /* Background color of the button */
+  color: var(--title-color); /* Text/icon color */
+  box-shadow: 0 12px 24px hsla(0, 0%, 0%, .3); /* Subtle shadow effect */
+  display: inline-flex; /* Inline-flex to align content */
+  padding: 6px; /* Padding for the button */
+  font-size: 1.25rem; /* Font size for the icon/text */
+  z-index: var(--z-tooltip); /* Ensures it stays above other elements */
+  transition: bottom .4s, transform .4s; /* Smooth transition for position and hover effects */
 }
 
 .scrollup:hover {
-  transform: translateY(-.5rem);
+  transform: translateY(-.5rem); /* Slight upward animation on hover */
 }
 
 /* Show Scroll Up */
 .show-scroll {
-  bottom: 3rem;
+  bottom: 3rem; /* Move the button into the viewport */
 }
+
 
 /*=============== BREAKPOINTS ===============*/
-/* For small devices */
+
+/* For small devices (max-width: 340px) */
 @media screen and (max-width: 340px) {
+  /* Container settings */
   .container {
-    margin-inline: 1rem;
+    margin-inline: 1rem; /* Adds margin on the left and right of the container */
   }
 
+  /* Title adjustments for small devices */
   .home__title {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Reduces font size for better readability */
   }
+
+  /* Footer layout changes */
   .home__footer {
-    flex-direction: column;
-    row-gap: 2rem;
+    flex-direction: column; /* Changes footer layout to column */
+    row-gap: 2rem; /* Adds space between rows */
   }
 
+  /* New content layout */
   .new__content {
-    grid-template-columns: 200px;
-    justify-content: center;
+    grid-template-columns: 200px; /* Sets grid layout with a single column */
+    justify-content: center; /* Centers the content horizontally */
   }
+
+  /* New card adjustments */
   .new__card {
-    flex-direction: column;
-    row-gap: 1rem;
-    text-align: center;
+    flex-direction: column; /* Changes layout to vertical */
+    row-gap: 1rem; /* Adds space between elements */
+    text-align: center; /* Centers the text */
   }
+
+  /* Specific image order change for the second card */
   .new__card:nth-child(2) img {
-    order: initial;
+    order: initial; /* Resets the order of the image */
   }
 
+  /* Favorite container layout */
   .favorite__container {
-    grid-template-columns: 180px;
-    justify-content: center;
+    grid-template-columns: 180px; /* Sets grid to a single column */
+    justify-content: center; /* Centers the content horizontally */
   }
 
+  /* Footer content layout */
   .footer__content {
-    grid-template-columns: max-content;
+    grid-template-columns: max-content; /* Ensures footer content doesn't stretch */
   }
 }
 
-/* For medium devices */
+/* For medium devices (min-width: 576px) */
 @media screen and (min-width: 576px) {
+  /* Navigation menu width */
   .nav__menu {
-    width: 50%;
+    width: 50%; /* Reduces the width of the menu */
   }
 
+  /* General container settings */
   .home__container,
   .new__content,
   .about__container,
   .visit__content {
-    grid-template-columns: 350px;
-    justify-content: center;
+    grid-template-columns: 350px; /* Sets grid layout with a single column */
+    justify-content: center; /* Centers the content horizontally */
   }
 
+  /* Favorite container layout */
   .favorite__container {
-    grid-template-columns: repeat(2, 180px);
-    justify-content: center;
+    grid-template-columns: repeat(2, 180px); /* Two columns with 180px each */
+    justify-content: center; /* Centers the content horizontally */
   }
 
+  /* Footer content grid layout */
   .footer__content {
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(3, max-content); /* Creates a three-column layout */
   }
 }
 
+/* For larger devices (min-width: 768px) */
 @media screen and (min-width: 768px) {
+  /* Home page padding */
   .home {
-    padding-top: 3rem;
-  }
-  .home__container {
-    grid-template-columns: repeat(2, 350px);
-    align-items: center;
-  }
-  .home__data {
-    text-align: initial;
-  }
-  .home__footer {
-    grid-column: 1/3;
+    padding-top: 3rem; /* Adds top padding */
   }
 
-  .about__container {
-    grid-template-columns: repeat(2, 350px);
-    align-items: center;
+  /* Home container grid layout */
+  .home__container {
+    grid-template-columns: repeat(2, 350px); /* Two columns with 350px each */
+    align-items: center; /* Aligns items vertically in the center */
   }
+
+  /* Home data text alignment */
+  .home__data {
+    text-align: initial; /* Resets the text alignment */
+  }
+
+  /* Home footer grid span */
+  .home__footer {
+    grid-column: 1/3; /* Spans across two columns */
+  }
+
+  /* About container grid layout */
+  .about__container {
+    grid-template-columns: repeat(2, 350px); /* Two columns with 350px each */
+    align-items: center; /* Aligns items vertically */
+  }
+
+  /* About section data and title alignment */
   .about__data {
-    order: 1;
+    order: 1; /* Reorders the data to be first */
   }
   .about__data, 
   .about__data .section__title {
-    text-align: initial;
+    text-align: initial; /* Resets text alignment */
   }
 
+  /* Favorite container layout */
   .favorite__container {
-    grid-template-columns: repeat(3, 180px);
+    grid-template-columns: repeat(3, 180px); /* Three columns of 180px */
   }
 
+  /* Footer container grid layout */
   .footer__container {
-    grid-template-columns: repeat(2, max-content);
-    justify-content: space-between;
+    grid-template-columns: repeat(2, max-content); /* Two-column layout */
+    justify-content: space-between; /* Adds space between items */
   }
+
+  /* Footer image positioning */
   .footer__img-1 {
-    top: 6rem;
+    top: 6rem; /* Moves image down */
   }
   .footer__img-2 {
-    top: 8rem;
+    top: 8rem; /* Moves image further down */
   }
 }
 
-/* For large devices */
+/* For large devices (min-width: 1150px) */
 @media screen and (min-width: 1150px) {
+  /* Container margin adjustment */
   .container {
-    margin-inline: auto;
+    margin-inline: auto; /* Centers the container horizontally */
   }
 
+  /* Section padding */
   .section {
-    padding-block: 7rem 2rem;
+    padding-block: 7rem 2rem; /* Adds vertical padding */
   }
 
+  /* Navigation settings */
   .nav {
-    height: calc(var(--header-height) + 2rem);
+    height: calc(var(--header-height) + 2rem); /* Adjusts nav height */
   }
   .nav__toggle, 
   .nav__close, 
   .nav__img-1, 
   .nav__img-2 {
-    display: none;
+    display: none; /* Hides toggle, close, and images in nav */
   }
   .nav__menu {
-    width: initial;
+    width: initial; /* Resets menu width */
   }
   .nav__list {
-    flex-direction: row;
-    column-gap: 4rem;
+    flex-direction: row; /* Changes nav list direction to row */
+    column-gap: 4rem; /* Adds space between nav items */
   }
 
+  /* Home container grid layout */
   .home__container {
-    grid-template-columns: 470px 550px;
-    column-gap: 3rem;
+    grid-template-columns: 470px 550px; /* Two columns with specific widths */
+    column-gap: 3rem; /* Adds space between columns */
   }
+
+  /* Home title adjustments */
   .home__title {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Adds bottom margin */
   }
+
+  /* Home breadcrumb positioning */
   .home__bread {
     width: 80px;
-    left: 18rem;
+    left: 18rem; /* Adjusts position of breadcrumb */
   }
+
+  /* Home image size */
   .home__image {
     max-width: initial;
-    width: 550px;
+    width: 550px; /* Sets image width */
   }
+
+  /* Home location styling */
   .home__location i {
-    font-size: 2rem;
+    font-size: 2rem; /* Adjusts icon size */
   }
   .home__location span {
-    font-size: var(--normal-font-size);
-  }
-  .home__social {
-    column-gap: 1.5rem;
+    font-size: var(--normal-font-size); /* Adjusts text size */
   }
 
+  /* Social media icons layout */
+  .home__social {
+    column-gap: 1.5rem; /* Adds gap between icons */
+  }
+
+  /* New content container padding */
   .new__container {
-    padding-top: 4rem;
+    padding-top: 4rem; /* Adds top padding */
   }
   .new__content {
-    grid-template-columns: repeat(3, 270px);
-    column-gap: 5.5rem;
-  }
-  .new__card {
-    flex-direction: column;
-    row-gap: 2rem;
-    text-align: center;
-  }
-  .new__title {
-    font-size: var(--h1-font-size);
-  }
-  .new__description {
-    font-size: var(--normal-font-size);
-    padding-inline: 1rem;
-  }
-  .new__img {
-    width: 250px;
+    grid-template-columns: repeat(3, 270px); /* Three columns with 270px each */
+    column-gap: 5.5rem; /* Adds space between columns */
   }
 
+  /* New card layout adjustments */
+  .new__card {
+    flex-direction: column; /* Changes layout to vertical */
+    row-gap: 2rem; /* Adds space between elements */
+    text-align: center; /* Centers text */
+  }
+
+  /* New content title font size */
+  .new__title {
+    font-size: var(--h1-font-size); /* Increases font size */
+  }
+
+  /* New content description font size */
+  .new__description {
+    font-size: var(--normal-font-size); /* Sets font size */
+    padding-inline: 1rem; /* Adds padding */
+  }
+
+  /* New content image width */
+  .new__img {
+    width: 250px; /* Sets image width */
+  }
+
+  /* About container grid layout */
   .about__container {
-    grid-template-columns: 450px 430px;
-    column-gap: 7rem;
+    grid-template-columns: 450px 430px; /* Sets two columns with 450px and 430px widths */
+    column-gap: 7rem; /* Adds space between columns */
   }
+
+  /* About image width */
   .about__img {
-    width: 450px;
+    width: 450px; /* Sets image width */
   }
+
+  /* About breadcrumb positioning */
   .about__bread {
     width: 90px;
-    bottom: -3rem;
-    right: 4rem;
+    bottom: -3rem; /* Moves breadcrumb down */
+    right: 4rem; /* Moves breadcrumb to the right */
   }
 
+  /* Favorite container grid layout */
   .favorite__container {
-    padding-top: 5.5rem;
-    grid-template-columns: repeat(3, 240px);
-    gap: 5.5rem 2rem;
-  }
-  .favorite__card {
-    padding: 9.75rem 1.5rem 2rem;
-  }
-  .favorite__img {
-    width: 180px;
-    top: -3rem;
-  }
-  .favorite__price {
-    font-size: var(--h3-font-size);
-  }
-  .favorite__button {
-    font-size: 1.5rem;
-    bottom: 2rem;
-    right: 1.5rem;
+    padding-top: 5.5rem; /* Adds top padding */
+    grid-template-columns: repeat(3, 240px); /* Three columns with 240px each */
+    gap: 5.5rem 2rem; /* Sets horizontal and vertical gap */
   }
 
+  /* Favorite card adjustments */
+  .favorite__card {
+    padding: 9.75rem 1.5rem 2rem; /* Adds padding inside cards */
+  }
+
+  /* Favorite image adjustments */
+  .favorite__img {
+    width: 180px; /* Sets image width */
+    top: -3rem; /* Moves image up */
+  }
+
+  /* Favorite price font size */
+  .favorite__price {
+    font-size: var(--h3-font-size); /* Increases font size */
+  }
+
+  /* Favorite button positioning */
+  .favorite__button {
+    font-size: 1.5rem; /* Sets button font size */
+    bottom: 2rem; /* Positions button vertically */
+    right: 1.5rem; /* Positions button horizontally */
+  }
+
+  /* Visit container padding */
   .visit__container {
-    padding-block: 4rem;
+    padding-block: 4rem; /* Adds vertical padding */
   }
   .visit__content {
-    grid-template-columns: 480px;
+    grid-template-columns: 480px; /* Single column layout */
   }
 
+  /* Footer padding */
   .footer {
-    padding-block: 5rem 3rem;
+    padding-block: 5rem 3rem; /* Adds top and bottom padding */
   }
+
+  /* Footer logo and title margin */
   .footer__logo, 
   .footer__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Adds bottom margin */
   }
+
+  /* Footer content layout */
   .footer__content {
-    column-gap: 4.5rem;
+    column-gap: 4.5rem; /* Adds space between footer items */
   }
+
+  /* Footer social icons layout */
   .footer__social {
-    column-gap: 1.5rem;
+    column-gap: 1.5rem; /* Adds space between social icons */
   }
+
+  /* Footer image positioning */
   .footer__img-1 {
     width: 90px;
     right: initial;
-    left: 15rem;
+    left: 15rem; /* Positions image to the left */
   }
   .footer__img-2 {
     width: 90px;
     left: initial;
-    right: 7rem;
+    right: 7rem; /* Positions image to the right */
   }
+
+  /* Footer copyright margin */
   .footer__copy {
-    margin-top: 8rem;
+    margin-top: 8rem; /* Adds top margin */
   }
 
+  /* Scrollup button positioning */
   .scrollup {
-    right: 3rem;
+    right: 3rem; /* Positions scrollup button */
   }
 }
 
-/* Auth Button Styles */
+
+/*=============== Auth Button Styles ===============*/
+
+/* Style for the authorization button within the nav */
 .nav__auth {
-  margin-left: 1.5rem;
+  margin-left: 1.5rem; /* Adds space to the left of the auth button */
 }
 
+/* Style for the button in the auth modal */
 .auth__button {
-  background-color: var(--first-color);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4rem;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  background-color: var(--first-color); /* Background color set to primary color */
+  color: #fff; /* Text color set to white */
+  padding: 0.75rem 1.5rem; /* Adds padding inside the button */
+  border-radius: 4rem; /* Rounds the corners of the button */
+  border: none; /* Removes border */
+  cursor: pointer; /* Changes cursor to pointer to indicate a clickable item */
+  transition: 0.3s; /* Smooth transition effect on hover */
 }
 
+/* Hover effect for the authorization button */
 .auth__button:hover {
-  background-color: var(--first-color-alt);
+  background-color: var(--first-color-alt); /* Changes background color when hovered */
 }
 
-/* Modal Styles */
+/*=============== Modal Styles ===============*/
+
+/* Modal background overlay */
 .auth__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  position: fixed; /* Fixes modal to the screen */
+  top: 0; left: 0; right: 0; bottom: 0; /* Stretches modal to cover entire viewport */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: none; /* Hides the modal by default */
+  justify-content: center; /* Centers the modal horizontally */
+  align-items: center; /* Centers the modal vertically */
+  z-index: 1000; /* Ensures modal appears on top of other content */
 }
 
+/* Content of the modal */
 .auth__content {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  width: 90%;
-  max-width: 400px;
+  background-color: #fff; /* White background for the modal content */
+  padding: 2rem; /* Padding inside the modal */
+  border-radius: 1rem; /* Rounded corners for the modal */
+  width: 90%; /* Modal width takes up 90% of the screen width */
+  max-width: 400px; /* Ensures the modal width does not exceed 400px */
 }
 
+/* Header section of the modal */
 .auth__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  display: flex; /* Uses flexbox to align items */
+  justify-content: space-between; /* Space between title and close button */
+  align-items: center; /* Vertically centers the items */
+  margin-bottom: 2rem; /* Adds space below the header */
 }
 
+/* Tabs inside the modal for switching between login/registration */
 .auth__tabs {
-  display: flex;
-  gap: 1rem;
+  display: flex; /* Uses flexbox for horizontal layout */
+  gap: 1rem; /* Adds space between tabs */
 }
 
+/* Individual tab styling */
 .auth__tab {
-  background: none;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--text-color);
-  opacity: 0.7;
+  background: none; /* No background color */
+  border: none; /* Removes border */
+  padding: 0.5rem 1rem; /* Adds padding inside each tab */
+  cursor: pointer; /* Changes cursor to indicate clickable item */
+  font-weight: 600; /* Makes text bold */
+  color: var(--text-color); /* Text color set to text color variable */
+  opacity: 0.7; /* Reduces opacity for inactive tabs */
 }
 
+/* Active tab state */
 .auth__tab.active {
-  opacity: 1;
-  border-bottom: 2px solid var(--first-color);
+  opacity: 1; /* Fully opaque for active tab */
+  border-bottom: 2px solid var(--first-color); /* Adds a bottom border to the active tab */
 }
 
+/* Close button for the modal */
 .auth__close {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-color);
+  background: none; /* No background color */
+  border: none; /* Removes border */
+  font-size: 1.5rem; /* Sets font size */
+  cursor: pointer; /* Changes cursor to indicate clickable item */
+  color: var(--text-color); /* Text color for the close button */
 }
 
-/* Form Styles */
+/*=============== Form Styles ===============*/
+
+/* Styling for form groups (each form field) */
 .form__group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Adds space below each form group */
 }
 
+/* Label styling inside form groups */
 .form__group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  display: block; /* Makes the label a block element */
+  margin-bottom: 0.5rem; /* Adds space below the label */
+  font-weight: 500; /* Sets label text to medium weight */
 }
 
+/* Input field styling inside form groups */
 .form__group input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
+  width: 100%; /* Makes input field span full width of its parent */
+  padding: 0.75rem 1rem; /* Adds padding inside the input field */
+  border: 1px solid #ddd; /* Light gray border around input */
+  border-radius: 0.5rem; /* Rounded corners for the input field */
 }
 
+/* Submit button style in the form */
 .auth__form .button {
-  width: 100%;
-  margin-top: 1rem;
+  width: 100%; /* Makes button span full width of its container */
+  margin-top: 1rem; /* Adds space above the button */
 }
